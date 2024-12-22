@@ -1,0 +1,55 @@
+name: Build and deploy Jekyll site to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master # 触发工作流的分支
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 步骤 1：检出代码
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # 步骤 2：设置 Ruby 环境
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7 # 你可以根据需要更改 Ruby 版本
+
+      # 步骤 3：安装依赖
+      - name: Install dependencies
+        run: |
+          gem install bundler
+          bundle install
+
+      # 步骤 4：构建 Jekyll 网站
+      - name: Build Jekyll site
+        run: bundle exec jekyll build
+
+      # 步骤 5：上传构建的静态文件
+      - name: Upload pages artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./_site # 上传构建输出目录 _site
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build # 需要依赖 build 作业
+
+    steps:
+      # 步骤 1：检出代码
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # 步骤 2：部署到 GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v1
+        with:
+          personal_token: ${{ secrets.GITHUB_TOKEN }} # GitHub Token
