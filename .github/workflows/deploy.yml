@@ -15,7 +15,7 @@ jobs:
 
     environment:
       name: github-pages  # 添加环境名称
-      
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -34,7 +34,7 @@ jobs:
         run: bundle exec jekyll build
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: github-pages
           path: _site/  # 这里假设构建的文件在 _site 文件夹中
