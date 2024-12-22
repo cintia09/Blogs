@@ -13,6 +13,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
+    environment:
+      name: github-pages  # 添加环境名称
+      
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
