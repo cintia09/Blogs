@@ -1,0 +1,41 @@
+name: Jekyll site CI
+
+on:
+  push:
+    branches:
+      - master  # 或者你的默认分支
+  pull_request:
+    branches:
+      - master  # 或者你的默认分支
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 检出代码
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # 设置 Ruby 环境
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7  # 设置 Ruby 版本，你可以根据需要修改
+
+      # 安装依赖
+      - name: Install dependencies
+        run: |
+          gem install bundler
+          bundle install
+
+      # 构建 Jekyll 网站
+      - name: Build the site with Jekyll
+        run: bundle exec jekyll build
+
+      # 部署到 GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
