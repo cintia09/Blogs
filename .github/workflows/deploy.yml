@@ -1,20 +1,17 @@
-name: Build and deploy Jekyll site to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches:
-      - master # 主分支
-  pull_request:
-    branches:
       - master
 
 permissions:
-  id-token: write  # 允许写入 ID Token 权限
-  contents: read   # 如果需要读取内容，也可以保留其他权限
-  
+  pages: write      # 给予 Pages 部署的写权限
+  id-token: write   # 允许 ID Token 权限
+
 jobs:
-  build:
-    runs-on: ubuntu-22.04
+  deploy:
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
@@ -23,30 +20,17 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.1 # 或更高版本
+          ruby-version: '3.1'
 
       - name: Install dependencies
         run: |
           gem install bundler
           bundle install
 
-      - name: Build Jekyll site
+      - name: Build site with Jekyll
         run: bundle exec jekyll build
-
-      - name: Upload pages artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: ./_site
-
-  deploy:
-    runs-on: ubuntu-22.04
-    needs: build
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v1
         with:
-          personal_token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
