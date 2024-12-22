@@ -1,8 +1,8 @@
 #-------------------------------
 # General Site Settings
-title: 我的技术博客
-logo: logo.svg # You can add own logo.
-description: 简单分享
+title: 明月倚楼的技术博客
+logo: 1.svg # You can add own logo.
+description: 学习，思考和分享
 
 
 #-------------------------------
@@ -12,7 +12,7 @@ author:
   image: 06.jpg
   say-hello: Hello, 我是<strong>明月倚楼</strong>
 #  bio: Designs, talks, and writes about <strong>web</strong>, <strong>ethics</strong>, <strong>privacy</strong>, and dev. I share design tutorials, free resources and inspiration. Loves <a href="#">music</a> & riding his bicycle.
-  bio: 一个<strong>码农</strong>，喜欢<strong>编程</strong>，<strong>思考</strong>。
+  bio: 一个<strong>码农</strong>，喜欢<strong>编程</strong>，<strong>思考</strong>。欢迎访问我的<a href="https://github.com/cintia09">GitHub</a>。
 
 #-------------------------------
 # Contact links
