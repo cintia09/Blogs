@@ -25,8 +25,20 @@ pinterest: https://pinterest.com/ # Add your Pinterest handle
 
 #-------------------------------
 # Comment Section (Disqus)
-disqus-identifier: mr-brown # add your shortname for Disqus Comment. For example mr-brown
-
+#disqus-identifier: mr-brown # add your shortname for Disqus Comment. For example mr-brown
+# 评论系统
+comments:
+  type: giscus # 可选值：giscus、valine、twikoo、artalk
+  giscus:
+    repo: username/repository
+    repo-id: repo-id
+    category: Comments
+    category-id: category-id
+  valine:
+    appId: your-leancloud-appId
+    appKey: your-leancloud-appKey
+  twikoo:
+    envId: your-tencent-cloud-envId
 
 #-------------------------------
 # Instagram Feed
