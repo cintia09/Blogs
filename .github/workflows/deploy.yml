@@ -30,13 +30,13 @@ jobs:
       - name: Build site with Jekyll
         run: bundle exec jekyll build
 
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v1
-        with:
-          token: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
-
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
           name: github-pages
           path: _site/  # 这里假设构建的文件在 _site 文件夹中
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
