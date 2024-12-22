@@ -8,6 +8,10 @@ on:
     branches:
       - master
 
+permissions:
+  id-token: write  # 允许写入 ID Token 权限
+  contents: read   # 如果需要读取内容，也可以保留其他权限
+  
 jobs:
   build:
     runs-on: ubuntu-22.04
