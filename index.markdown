@@ -1,6 +1,11 @@
----
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+# 我的第一篇博客
 
-layout: home
----
+欢迎来到我的博客！这是我的第一篇文章，主要是介绍如何使用 GitHub Pages 部署博客。
+
+## 部署过程
+
+1. 创建 GitHub 仓库
+2. 配置 GitHub Pages
+3. 上传博客内容
+
+希望大家喜欢！
