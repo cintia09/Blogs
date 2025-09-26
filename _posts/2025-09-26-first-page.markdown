@@ -7,7 +7,6 @@ tags:   第一篇。。。
 ---
 这是我尝试写的第一篇博客。
 
-```markdown
 # Swift Data 迁移实战：我是如何优雅地为我的 App 数据升级的
 
 大家好！最近半年，我一直在写一个类似 ChatGPT 的 AI 聊天 App，平台是 macOS，技术栈是 SwiftUI + Swift Data。这个 App 的特点是能直接从 Hugging Face 下载模型，在 Mac 本地运行，也能接入 Ollama 和 Gemini 的 API，算是一个集成了不同后端的本地 AI 聊天工具。
@@ -222,4 +221,3 @@ extension AppMigrationPlan {
 总而言之，对于一个需要长期迭代、数据模型会不断演进的 App 来说，这套方案带来的清晰结构和高可维护性，完全值得前期的投入。它帮我解决了数据升级这个大难题，让我的 App 可以更稳健地向前发展。
 
 希望这次的分享对你有用！如果你有更好的方法或者任何问题，欢迎留言交流。
-```
